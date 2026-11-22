@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Dependencies
+node_modules/
+
+# TypeScript & Build Output
+dist/
+*.tsbuildinfo
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Logs & Runtime Diagnostics
+logs/
+*.log
+npm-debug.log*
+
+# Editors / IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,29 @@
+{
+  "name": "bd-http-server",
+  "version": "1.0.0",
+  "description": "README",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "npx tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizmedina87/bd-http-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizmedina87/bd-http-server/issues"
+  },
+  "homepage": "https://github.com/luizmedina87/bd-http-server#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "type": "module"
+}
