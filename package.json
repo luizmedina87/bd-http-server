@@ -21,9 +21,13 @@
   },
   "homepage": "https://github.com/luizmedina87/bd-http-server#readme",
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/node": "^26.6.6",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
 }
