@@ -16,8 +16,8 @@ export function middlewareLogResponses(
 }
 
 export function middlewareMetricsInc(
-  req: Request,
-  res: Response,
+  _req: Request,
+  _res: Response,
   next: NextFunction,
 ) {
   config.fileserverHits++;
