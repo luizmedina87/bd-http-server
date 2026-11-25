@@ -6,6 +6,7 @@ import {
 } from "./api/middleware.js";
 import { handlerMetrics} from "./api/metrics.js";
 import { handlerReset } from "./api/reset.js";
+import { handlerValidate } from "./api/validate.js";
 
 const app: Express = express();
 const port = 8080;
@@ -16,6 +17,7 @@ app.use("/app", middlewareMetricsInc, express.static("src/app"));
 app.get("/api/healthz", handlerReadiness);
 app.get("/admin/metrics", handlerMetrics);
 app.post("/admin/reset", handlerReset);
+app.post("/api/validate_chirp", handlerValidate);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
