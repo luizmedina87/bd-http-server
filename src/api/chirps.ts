@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { respondWithError, respondWithJSON } from "./json.js";
+import { respondWithJSON } from "./json.js";
 
 export async function handlerChirpsValidate(req: Request, res: Response) {
   type parameters = {
@@ -9,16 +9,17 @@ export async function handlerChirpsValidate(req: Request, res: Response) {
   const params: parameters = req.body;
 
   if (!params || typeof params.body !== "string") {
-    respondWithError(res, 400, "Invalid JSON body");
-    return;
+    throw new Error("Invalid JSON body");
   }
 
   const maxChirpLenght = 140;
   if (params.body.length > maxChirpLenght) {
-    respondWithError(res, 400, "Chirp is too long");
-    return;
+    throw new Error("Chirp is too logn");
   }
 
-  const cleanedBodyText = params.body.replace(/\b(?:kerfuffle|sharbert|fornax)\b/gi, "****");
+  const cleanedBodyText = params.body.replace(
+    /\b(?:kerfuffle|sharbert|fornax)\b/gi,
+    "****",
+  );
   respondWithJSON(res, 200, { cleanedBody: cleanedBodyText });
 }

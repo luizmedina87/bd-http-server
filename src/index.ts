@@ -3,8 +3,9 @@ import { handlerReadiness } from "./api/readiness.js";
 import {
   middlewareLogResponses,
   middlewareMetricsInc,
+  middlewareError,
 } from "./api/middleware.js";
-import { handlerMetrics} from "./api/metrics.js";
+import { handlerMetrics } from "./api/metrics.js";
 import { handlerReset } from "./api/reset.js";
 import { handlerChirpsValidate } from "./api/chirps.js";
 
@@ -20,6 +21,8 @@ app.get("/api/healthz", handlerReadiness);
 app.get("/admin/metrics", handlerMetrics);
 app.post("/admin/reset", handlerReset);
 app.post("/api/validate_chirp", handlerChirpsValidate);
+
+app.use(middlewareError);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
