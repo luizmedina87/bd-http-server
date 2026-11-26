@@ -18,5 +18,6 @@ export function handlerValidate(req: Request, res: Response) {
     return;
   }
 
-  respondWithJSON(res, 200, { valid: true });
+  const cleanedBodyText = params.body.replace(/\b(?:kerfuffle|sharbert|fornax)\b/gi, "****");
+  respondWithJSON(res, 200, { cleanedBody: cleanedBodyText });
 }
