@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { respondWithJSON } from "./json.js";
+import { BadRequestError } from "./error.js";
 
 export async function handlerChirpsValidate(req: Request, res: Response) {
   type parameters = {
@@ -9,12 +10,12 @@ export async function handlerChirpsValidate(req: Request, res: Response) {
   const params: parameters = req.body;
 
   if (!params || typeof params.body !== "string") {
-    throw new Error("Invalid JSON body");
+    throw new BadRequestError("Invalid JSON body");
   }
 
   const maxChirpLenght = 140;
   if (params.body.length > maxChirpLenght) {
-    throw new Error("Chirp is too logn");
+    throw new BadRequestError(`Chirp is too long. Max length is ${maxChirpLenght}`);
   }
 
   const cleanedBodyText = params.body.replace(
