@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import { respondWithError, respondWithJSON } from "./json.js";
 
-export function handlerChirpsValidate(req: Request, res: Response) {
+export async function handlerChirpsValidate(req: Request, res: Response) {
   type parameters = {
     body: string;
   };
